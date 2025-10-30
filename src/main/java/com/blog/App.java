@@ -9,6 +9,7 @@ import com.blog.services.CommentService;
 import com.blog.services.PostService;
 import com.blog.services.UserService;
 import com.blog.util.HibernateUtil;
+import com.blog.util.ConsoleColor;
 
 public class App {
     
@@ -79,9 +80,9 @@ public class App {
         String password = scanner.nextLine();
         
         if (userService.registerUser(username, password)) {
-            System.out.println("Registration successful!");
+            System.out.println(ConsoleColor.BOLD_GREEN+ "Registration successful!" + ConsoleColor.RESET);
         } else {
-            System.out.println("Registration failed. Try a different username.");
+            System.out.println(ConsoleColor.BOLD_RED+ "Registration failed. Try a different username." + ConsoleColor.RESET);
         }
     }
 
@@ -93,9 +94,9 @@ public class App {
         
         currentUser = userService.loginUser(username, password);
         if (currentUser != null) {
-            System.out.println("Login successful!");
+            System.out.println(ConsoleColor.BOLD_GREEN+ "Login successful!" + ConsoleColor.RESET);
         } else {
-            System.out.println("Invalid username or password.");
+            System.out.println(ConsoleColor.BOLD_RED+"Invalid username or password."+ ConsoleColor.RESET);
         }
     }
 

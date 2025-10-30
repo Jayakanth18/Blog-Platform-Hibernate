@@ -9,7 +9,8 @@ import com.blog.util.HibernateUtil;
 
 public class PostDao {
 
-    public void savePost(Post post) {
+    @SuppressWarnings("deprecation")
+	public void savePost(Post post) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
